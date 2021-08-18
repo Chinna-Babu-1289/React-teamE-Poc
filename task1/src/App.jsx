@@ -3,6 +3,7 @@ import NavBar from "./Components/NavBar/NavBar";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./Components/Pages/Home/Home";
 import AddTask from "./Components/Pages/Home/AddTask";
+// import Btn from "./UI/Button";
 
 function App() {
   return (

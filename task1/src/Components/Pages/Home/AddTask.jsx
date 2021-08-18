@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
+import { Button } from "@material-ui/core";
+import InputField from "../../../UI/InputField";
 
 const AddTask = () => {
   const [enteredDate, setEnteredDate] = useState("");
@@ -37,22 +39,24 @@ const AddTask = () => {
     <div className="addtask">
       <form onSubmit={submitHandler}>
         <div>
-          <label htmlFor="date">Date</label>
-          <input
+          <InputField
+            for="date"
             type="date"
-            id="date"
             value={enteredDate}
             onChange={dateChangeHandler}
-          />
+          >
+            Date
+          </InputField>
         </div>
         <div>
-          <label htmlFor="task">Task</label>
-          <input
+          <InputField
+            for="task"
             type="text"
-            id="task"
             value={enteredTask}
             onChange={taskChangeHandler}
-          />
+          >
+            Task
+          </InputField>
         </div>
         <div>
           <label htmlFor="hours">Hours</label>
@@ -63,9 +67,9 @@ const AddTask = () => {
             onChange={hoursChangeHandler}
           />
         </div>
-        <button className="btn" type="submit">
+        <Button className="btn" type="submit" color="primary">
           Submit
-        </button>
+        </Button>
       </form>
     </div>
   );
