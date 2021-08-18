@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import "../../../Styles/Form.css";
-
-const AddTask = () => {
+import Validate from "./Validate";
+const LoginForm = () => {
   const [values, setValues] = useState({
-    date: "",
-    task: "",
-    hours: "",
+    email: "",
+    password: "",
   });
+
+  const [errors, setErrors] = useState({});
 
   const ChangeHandler = (event) => {
     setValues({
@@ -17,11 +18,11 @@ const AddTask = () => {
 
   const submitHandler = (event) => {
     event.preventDefault();
+    setErrors(Validate(values));
     console.log(values);
     setValues({
-      date: "",
-      task: "",
-      hours: "",
+      email: "",
+      password: "",
     });
   };
 
@@ -29,49 +30,41 @@ const AddTask = () => {
     <div className="container">
       <div className="app-wrapper">
         <div>
-          <h2 className="title">Add Task</h2>
+          <h2 className="title">Login</h2>
         </div>
         <form className="form-wrapper" onSubmit={submitHandler}>
           <div className="name">
-            <label className="label">Date</label>
+            <label className="label">Email</label>
             <input
               className="input"
-              type="date"
-              name="date"
-              value={values.date}
+              type="email"
+              name="email"
+              value={values.email}
               onChange={ChangeHandler}
             />
+            {errors.email && <p className="errors">{errors.email}</p>}
           </div>
           <div className="name">
-            <label className="label">Task</label>
+            <label className="label">Password</label>
             <input
               className="input"
-              type="text"
-              name="task"
-              value={values.task}
+              type="password"
+              name="password"
+              value={values.password}
               onChange={ChangeHandler}
             />
-          </div>
-          <div className="name">
-            <label className="label">Hours</label>
-            <input
-              className="input"
-              type="number"
-              name="hours"
-              value={values.hours}
-              onChange={ChangeHandler}
-            />
+            {errors.password && <p className="errors">{errors.password}</p>}
           </div>
           <div>
             <button className="submit" type="submit">
-              Add Task
+              Login
             </button>
           </div>
         </form>
-        <p></p>
+        <p>OR</p>
         <div>
           <button className="submit" type="button">
-            List View
+            SignUP
           </button>
         </div>
       </div>
@@ -79,4 +72,4 @@ const AddTask = () => {
   );
 };
 
-export default AddTask;
+export default LoginForm;

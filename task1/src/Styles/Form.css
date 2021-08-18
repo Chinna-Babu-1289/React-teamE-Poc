@@ -1,0 +1,96 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  background: linear-gradient(to left, purple, red);
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+.app-wrapper {
+  background-color: white;
+  min-width: 350px;
+  min-height: 400px;
+  padding: 30px;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
+.title {
+  color: red;
+  text-align: center;
+  margin: 50px 0px 50px 0px;
+}
+
+.name,
+.email,
+.password {
+  margin: 20px;
+  color: #1f1919;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.password {
+  margin-bottom: 40px;
+}
+
+.input {
+  height: 32px;
+  font-size: 20px;
+  outline: none;
+  width: 100%;
+  border-top-style: none;
+  border-left-style: none;
+  border-right-style: none;
+  border-bottom-style: 2px solid black;
+  margin-bottom: 10px;
+}
+
+.errors {
+  color: red;
+  font-weight: bold;
+  font-size: medium;
+}
+
+.submit {
+  display: flex;
+  text-transform: uppercase;
+  font-size: 25px;
+  border-radius: 25px;
+  color: white;
+  padding: 10px 60px;
+  background: linear-gradient(to right, purple, red);
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  margin: auto;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.button {
+  transform: translateY(2px);
+}
+
+.form-success {
+  display: flex;
+  justify-content: center;
+  margin-top: 250px;
+  min-width: 370px;
+  color: green;
+}
+
+p {
+  font-weight: bold;
+  padding: 15px 150px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+}

@@ -1,20 +1,16 @@
 import "./Styles/App.css";
-import NavBar from "./Components/NavBar/NavBar";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./Components/Pages/Home/Home";
+import LoginForm from "./Components/Pages/Login/LoginForm";
+import SignUpForm from "./Components/Pages/Login/SignUpForm";
 import AddTask from "./Components/Pages/Home/AddTask";
-// import Btn from "./UI/Button";
 
 function App() {
   return (
     <div className="App">
-      <Router>
-        <NavBar />
-        <Home />
-        <Switch>
-          <Route path="/addtask" exact component={AddTask} />
-        </Switch>
-      </Router>
+      {/* <Home /> */}
+      <LoginForm />
+      <SignUpForm />
+      <AddTask />
     </div>
   );
 }
