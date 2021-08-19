@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "../../../Styles/Form.css";
 import Validate from "./Validate";
+import { useHistory } from "react-router-dom";
+
 const LoginForm = () => {
   const [values, setValues] = useState({
     email: "",
@@ -8,6 +10,7 @@ const LoginForm = () => {
   });
 
   const [errors, setErrors] = useState({});
+  let history = useHistory();
 
   const ChangeHandler = (event) => {
     setValues({
@@ -63,7 +66,14 @@ const LoginForm = () => {
         </form>
         <p>OR</p>
         <div>
-          <button className="submit" type="button">
+          <button
+            className="submit"
+            type="button"
+            onClick={(event) => {
+              event.preventDefault();
+              history.push("/signup");
+            }}
+          >
             SignUP
           </button>
         </div>
