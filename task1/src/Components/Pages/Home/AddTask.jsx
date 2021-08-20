@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import "../../../Styles/Form.css";
 
 const AddTask = () => {
+  let history = useHistory();
   const [values, setValues] = useState({
     date: "",
     task: "",
@@ -17,6 +19,7 @@ const AddTask = () => {
 
   const submitHandler = (event) => {
     event.preventDefault();
+    history.push("/display", { values });
     console.log(values);
     setValues({
       date: "",

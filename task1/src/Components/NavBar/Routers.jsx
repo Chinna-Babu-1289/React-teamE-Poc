@@ -7,6 +7,7 @@ import LoginForm from "../Pages/Login/LoginForm";
 import Logout from "../Pages/Logout/Logout";
 import SignUpForm from "../Pages/Login/SignUpForm";
 import AddTask from "../Pages/Home/AddTask";
+import Display from "../Pages/Home/Display";
 import NavBar from "./NavBar";
 
 const Routers = () => {
@@ -21,6 +22,7 @@ const Routers = () => {
           <Route path="/logout" component={Logout} />
           <Route path="/signup" component={SignUpForm} />
           <Route path="/addtask" component={AddTask} />
+          <Route path="/display" component={Display} />
         </Switch>
       </Router>
     </div>
