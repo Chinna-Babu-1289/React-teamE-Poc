@@ -1,28 +1,39 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import "../../../Styles/Form.css";
 
 const AddTask = () => {
-  const [values, setValues] = useState({
-    date: "",
-    task: "",
-    hours: "",
-  });
+  let history = useHistory();
 
-  const ChangeHandler = (event) => {
-    setValues({
-      ...values,
-      [event.target.name]: [event.target.value],
-    });
+  const [task, setTask] = useState("");
+  const [date, setDate] = useState("");
+  const [hours, setHours] = useState("");
+
+  const taskChangeHandler = (event) => {
+    setTask(event.target.value);
   };
 
+  const dateChangeHandler = (event) => {
+    setDate(event.target.value);
+  };
+
+  const hoursChangeHandler = (event) => {
+    setHours(event.target.value);
+  };
   const submitHandler = (event) => {
     event.preventDefault();
-    console.log(values);
-    setValues({
-      date: "",
-      task: "",
-      hours: "",
-    });
+
+    const values = {
+      task: task,
+      date: new Date(date),
+      hours: +hours,
+    };
+    history.push("/display", { state: values });
+    // console.log(values);
+
+    setTask("");
+    setDate(new Date(""));
+    setHours("");
   };
 
   return (
@@ -38,8 +49,8 @@ const AddTask = () => {
               className="input"
               type="date"
               name="date"
-              value={values.date}
-              onChange={ChangeHandler}
+              value={date}
+              onChange={dateChangeHandler}
             />
           </div>
           <div className="name">
@@ -48,8 +59,8 @@ const AddTask = () => {
               className="input"
               type="text"
               name="task"
-              value={values.task}
-              onChange={ChangeHandler}
+              value={task}
+              onChange={taskChangeHandler}
             />
           </div>
           <div className="name">
@@ -58,22 +69,14 @@ const AddTask = () => {
               className="input"
               type="number"
               name="hours"
-              value={values.hours}
-              onChange={ChangeHandler}
+              value={hours}
+              onChange={hoursChangeHandler}
             />
           </div>
           <div>
-            <button className="submit" type="submit">
-              Add Task
-            </button>
+            <button className="submit">Add Task</button>
           </div>
         </form>
-        <p></p>
-        <div>
-          <button className="submit" type="button">
-            List View
-          </button>
-        </div>
       </div>
     </div>
   );
