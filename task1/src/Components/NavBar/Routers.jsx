@@ -7,13 +7,10 @@ import LoginForm from "../Pages/Login/LoginForm";
 import Logout from "../Pages/Logout/Logout";
 import SignUpForm from "../Pages/Login/SignUpForm";
 import AddTask from "../Pages/Home/AddTask";
-<<<<<<< HEAD
 import Display from "../Pages/Home/Display";
 import NavBar from "./NavBar";
 import NotFound from "../Pages/Home/NotFound";
-=======
 import NavBar from "./NavBar";
->>>>>>> bcc481659244161678f901f033bf2151f0dc2deb
 
 const Routers = () => {
   return (
@@ -27,11 +24,8 @@ const Routers = () => {
           <Route path="/logout" component={Logout} />
           <Route path="/signup" component={SignUpForm} />
           <Route path="/addtask" component={AddTask} />
-<<<<<<< HEAD
           <Route path="/display" component={Display} />
           <Route path="*" component={NotFound} />
-=======
->>>>>>> bcc481659244161678f901f033bf2151f0dc2deb
         </Switch>
       </Router>
     </div>
