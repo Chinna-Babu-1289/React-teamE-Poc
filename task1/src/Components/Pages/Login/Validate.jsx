@@ -1,6 +1,6 @@
 const Validate = (values) => {
   let errors = {};
-  const password = values.password[0];
+  const password = values.password;
   const email = values.email;
   const fullname = values.fullname;
   const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]{2,4}$/;
@@ -17,10 +17,12 @@ const Validate = (values) => {
 
   if (!password) {
     errors.password = "*Password is Required.";
-  } else if (password.length < 7) {
+  }
+  if (password.length < 7) {
     errors.password = "Password must be more than 8 characters.";
-  } else if (password.length < 15) {
-    errors.password = "Password must not be more than 8 characters.";
+  }
+  if (password.length > 15) {
+    errors.password = "Password must not be more than 15 characters.";
   }
 
   return errors;
