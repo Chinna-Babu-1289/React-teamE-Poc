@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 import "../../../Styles/Form.css";
 import Validate from "./Validate";
 
@@ -11,7 +11,7 @@ const SignUpForm = (submitForm) => {
   });
 
   const [errors, setErrors] = useState({});
-  let history = useHistory();
+  // let history = useHistory();
   const [dataIsValid, setDataIsValid] = useState(false);
 
   const ChangeHandler = (event) => {
@@ -55,7 +55,7 @@ const SignUpForm = (submitForm) => {
               value={values.fullname}
               onChange={ChangeHandler}
             />
-            {errors.fullname && <p className="errors">{errors.fullname}</p>}
+            {errors.fullname && <div className="errors">{errors.fullname}</div>}
           </div>
           <div className="name">
             <label className="label">Email</label>
@@ -66,7 +66,7 @@ const SignUpForm = (submitForm) => {
               value={values.email}
               onChange={ChangeHandler}
             />
-            {errors.email && <p className="errors">{errors.email}</p>}
+            {errors.email && <div className="errors">{errors.email}</div>}
           </div>
           <div className="name">
             <label className="label">Password</label>
@@ -77,7 +77,7 @@ const SignUpForm = (submitForm) => {
               value={values.password}
               onChange={ChangeHandler}
             />
-            {errors.password && <p className="errors">{errors.password}</p>}
+            {errors.password && <div className="errors">{errors.password}</div>}
           </div>
           <div>
             <button className="submit" type="submit">
@@ -85,7 +85,7 @@ const SignUpForm = (submitForm) => {
             </button>
           </div>
         </form>
-        <p>OR</p>
+        {/* <p>OR</p>
         <div>
           <button
             className="submit"
@@ -96,8 +96,8 @@ const SignUpForm = (submitForm) => {
             }}
           >
             Login
-          </button>
-        </div>
+          </button> 
+         </div> */}
       </div>
     </div>
   );

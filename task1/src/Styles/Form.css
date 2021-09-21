@@ -1,18 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 .container {
   width: 100%;
-  min-height: 100vh;
+  min-height: 90vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  /* margin-top: 15px; */
+  /* margin-top: 20px; */
   margin-bottom: 5px;
+  background: wheat;
 }
-
 .app-wrapper {
   background-color: white;
   min-width: 350px;
-  min-height: 400px;
-  padding: 30px;
+  min-height: 350px;
+  padding: 20px 30px 30px 30px;
   box-sizing: border-box;
   border-radius: 10px;
 }
@@ -20,7 +25,7 @@
 .title {
   color: red;
   text-align: center;
-  margin: 50px 0px 50px 0px;
+  margin: 40px 0px 60px 0px;
 }
 
 .name,

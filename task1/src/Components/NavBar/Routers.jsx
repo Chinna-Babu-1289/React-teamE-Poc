@@ -10,7 +10,6 @@ import AddTask from "../Pages/Home/AddTask";
 import Display from "../Pages/Home/Display";
 import NavBar from "./NavBar";
 import NotFound from "../Pages/Home/NotFound";
-import NavBar from "./NavBar";
 
 const Routers = () => {
   return (

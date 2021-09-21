@@ -1,4 +1,4 @@
-const NavBarMenu = [
+export const LoggedInNavBarMenu = [
   {
     title: "Home",
     url: "/",
@@ -7,14 +7,24 @@ const NavBarMenu = [
     title: "Profile",
     url: "/profile",
   },
-  {
-    title: "Login/Signup",
-    url: "/login",
-  },
+
   {
     title: "Logout",
     url: "/logout",
   },
 ];
 
-export default NavBarMenu;
+export const LoggedoutNavBarMenu = [
+  {
+    title: "Home",
+    url: "/",
+  },
+  {
+    title: "Login",
+    url: "/login",
+  },
+  {
+    title: "Register",
+    url: "/signup",
+  },
+];

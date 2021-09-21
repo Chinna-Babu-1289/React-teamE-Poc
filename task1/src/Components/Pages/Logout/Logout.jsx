@@ -1,14 +1,13 @@
-import { Button } from "@material-ui/core";
 import React from "react";
-import { useHistory } from "react-router-dom";
-
+// import { useHistory } from "react-router-dom";
+import { useUserContext } from "../../Context/UserContext";
 const Logout = () => {
-  let history = useHistory();
-  return (
-    <div>
-      <Button variant="contained">{history.push("/login")}</Button>
-    </div>
-  );
+  // let history = useHistory();
+  const { user, logOut } = useUserContext();
+  console.log(logOut);
+  console.log(user);
+
+  return <div>{!user.isLoggedIn && <button onClick={logOut}></button>}</div>;
 };
 
 export default Logout;

@@ -2,31 +2,46 @@ import React, { useState } from "react";
 import "../../../Styles/Form.css";
 import Validate from "./Validate";
 import { useHistory } from "react-router-dom";
+import { useUserContext } from "../../Context/UserContext";
 
 const LoginForm = () => {
-  const [values, setValues] = useState({
-    email: "",
-    password: "",
-  });
-
+  const { logIn } = useUserContext();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({});
   let history = useHistory();
+  console.log(logIn);
 
-  const ChangeHandler = (event) => {
-    setValues({
-      ...values,
-      [event.target.name]: [event.target.value],
-    });
+  let adminemail = "root@root.com";
+  let adminpassword = "rootroot";
+
+  const emailChangeHandler = (event) => {
+    setEmail(event.target.value);
+  };
+
+  const passwordChangeHandler = (event) => {
+    setPassword(event.target.value);
   };
 
   const submitHandler = (event) => {
     event.preventDefault();
+    const values = {
+      email,
+      password,
+    };
+
     setErrors(Validate(values));
     console.log(values);
-    setValues({
-      email: "",
-      password: "",
-    });
+
+    if (adminemail === email && adminpassword === password) {
+      logIn(values.email);
+      history.push("/");
+    } else {
+      history.push("/login");
+    }
+
+    setEmail("");
+    setPassword("");
   };
 
   return (
@@ -42,10 +57,10 @@ const LoginForm = () => {
               className="input"
               type="email"
               name="email"
-              value={values.email}
-              onChange={ChangeHandler}
+              value={email}
+              onChange={emailChangeHandler}
             />
-            {errors.email && <p className="errors">{errors.email}</p>}
+            {errors.email && <div className="errors">{errors.email}</div>}
           </div>
           <div className="name">
             <label className="label">Password</label>
@@ -53,10 +68,10 @@ const LoginForm = () => {
               className="input"
               type="password"
               name="password"
-              value={values.password}
-              onChange={ChangeHandler}
+              value={password}
+              onChange={passwordChangeHandler}
             />
-            {errors.password && <p className="errors">{errors.password}</p>}
+            {errors.password && <div className="errors">{errors.password}</div>}
           </div>
           <div>
             <button className="submit" type="submit">
@@ -64,7 +79,7 @@ const LoginForm = () => {
             </button>
           </div>
         </form>
-        <p>OR</p>
+        {/* <p>OR</p>
         <div>
           <button
             className="submit"
@@ -76,7 +91,7 @@ const LoginForm = () => {
           >
             SignUP
           </button>
-        </div>
+        </div> */}
       </div>
     </div>
   );

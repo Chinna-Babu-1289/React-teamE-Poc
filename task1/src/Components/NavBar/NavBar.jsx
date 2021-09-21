@@ -9,12 +9,14 @@ import MenuIcon from "@material-ui/icons/Menu";
 import CloseIcon from "@material-ui/icons/Close";
 
 // local Componet and css imports
-import NavBarMenu from "./NavBarMenu";
+import { LoggedInNavBarMenu, LoggedoutNavBarMenu } from "./NavBarMenu";
 import "../../Styles/NavBar.css";
+import { useUserContext } from "../Context/UserContext";
 
 const NavBar = () => {
+  const { user } = useUserContext();
   const [Clicked, setClicked] = useState(false);
-  const menuItems = NavBarMenu.map(({ url, title }, index) => {
+  const loggedInmenuItems = LoggedInNavBarMenu.map(({ url, title }, index) => {
     return (
       <li key={index} className="list-item">
         <NavLink exact to={url} activeClassName="active">
@@ -23,6 +25,17 @@ const NavBar = () => {
       </li>
     );
   });
+  const loggedoutmenuItems = LoggedoutNavBarMenu.map(
+    ({ url, title }, index) => {
+      return (
+        <li key={index} className="list-item">
+          <NavLink exact to={url} activeClassName="active">
+            {title}
+          </NavLink>
+        </li>
+      );
+    }
+  );
 
   const iconHandler = () => {
     setClicked(!Clicked);
@@ -31,7 +44,7 @@ const NavBar = () => {
   return (
     <nav>
       <ul className={Clicked ? "list-items" : "list-items close"}>
-        {menuItems}
+        {user.isLoggedIn ? loggedInmenuItems : loggedoutmenuItems}
       </ul>
       <div className="icons" onClick={iconHandler}>
         {Clicked ? (
